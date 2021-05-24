@@ -10,8 +10,8 @@ import com.gs.weather.data.location.LocationDataSource
 import com.gs.weather.data.location.LocationRepository
 import com.gs.weather.data.location.OpenCageDataSource
 import com.gs.weather.data.location.OpenCageRepository
-import com.gs.weather.data.network.LocationApi
-import com.gs.weather.data.network.WeatherApi
+import com.gs.weather.api.LocationApi
+import com.gs.weather.api.WeatherApi
 import com.gs.weather.data.weather.OpenWeatherMapDataSource
 import com.gs.weather.data.weather.OpenWeatherMapRepository
 import com.gs.weather.data.weather.WeatherDataSource

@@ -1,4 +1,4 @@
-package com.gs.weather.data.network
+package com.gs.weather.api
 
 import com.gs.weather.data.network.json.openweathermap.WeatherResponse
 import retrofit2.Response

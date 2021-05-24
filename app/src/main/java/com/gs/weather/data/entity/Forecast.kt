@@ -30,12 +30,7 @@ data class Forecast(
     @TypeConverters(Converters::class)
     val dayForecastList: List<DayForecast>
 ) {
-    /**
-     * Checks if data is outdated or not.
-     * Update interval: 2 hours (openweathermap for free forecast)
-     * @see <a href="https://openweathermap.org/price">https://openweathermap.org/price</a>
-     * @return Returns true if data is valid
-     */
+
     val isOutdated: Boolean
         get() {
             val twoHoursInMillis = 2 * 60 * 60 * 1000 // 2 hours
@@ -43,9 +38,6 @@ data class Forecast(
             return currentTimeInMillis - timestamp.timeInMillis >= twoHoursInMillis
         }
 
-    /**
-     * Updates all temperature units in [Forecast] according to new [unit]
-     */
     fun updateTemperatureUnit(unit: Temperature) {
         currentForecast.temperature.updateUnit(unit)
         currentForecast.feelsLike.updateUnit(unit)

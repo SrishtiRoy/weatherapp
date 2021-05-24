@@ -1,4 +1,4 @@
-package com.gs.weather.data.network
+package com.gs.weather.utils
 
 import androidx.annotation.DrawableRes
 import com.gs.weather.R
@@ -6,12 +6,7 @@ import com.gs.weather.R
 const val DAY = 'd'
 const val NIGHT = 'n'
 
-/**
- * Returns an image (for Dark Surfaces) from [R.drawable] based on:
- * [id] (weather code, check the link)
- * [dayPart] ('n' - night, 'd' - day)
- * @see <a href="https://openweathermap.org/weather-conditions">OpenWeatherMap Conditions</a>
- */
+
 @DrawableRes fun getIconDarkSurface(id: Int, dayPart: Char): Int = when (id) {
     200 -> R.drawable.weather_thunderstorm_rain_light
     201 -> R.drawable.weather_thunderstorm_rain_middle

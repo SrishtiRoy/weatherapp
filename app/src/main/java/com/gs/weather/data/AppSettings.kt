@@ -6,9 +6,6 @@ import com.gs.weather.utils.*
 import java.util.*
 import android.content.SharedPreferences as SharedPreferences1
 
-/**
- * Storage for app and user preferences.
- */
 interface AppSettings {
     var temperature: Temperature
     var wind: Wind
@@ -17,9 +14,6 @@ interface AppSettings {
     var locale: Locale
 }
 
-/**
- * [AppSettings] impl backed by [android.content.SharedPreferences].
- */
 class AppSettingsImpl(context: Context) : AppSettings {
     companion object {
         const val PREF_NAME = "pref_settings"

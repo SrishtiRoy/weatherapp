@@ -20,11 +20,7 @@ class WeatherActivity : AppCompatActivity() {
             observe(viewModel.isAppFirstLaunched, ::showNextScreen)
     }
 
-    /**
-     * If app is launched for the first time, then navigates to [SearchFragment] to pick the location.
-     *
-     * If not - opens [WeatherFragment].
-     */
+
     private fun showNextScreen(isAppFirstLaunched: Boolean) {
         val fragment: BaseFragment = if (isAppFirstLaunched) {
             SearchFragment.newInstance()

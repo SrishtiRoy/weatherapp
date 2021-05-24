@@ -4,15 +4,7 @@ import android.animation.ValueAnimator
 import android.widget.TextView
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 
-/**
- * Increase/decrease animation of integer value.
- *
- * If [TextView.getText] is not a number, then start value is 0.
- *
- * @param newValue the value to animate
- * @param isSignShown plus (+) sign before value (+15)
- * @param duration length of animation. Default - 400L
- */
+
 fun TextView.animateNumberChange(
     newValue: Int,
     isSignShown: Boolean = false,

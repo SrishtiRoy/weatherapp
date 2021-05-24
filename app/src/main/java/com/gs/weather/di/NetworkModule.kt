@@ -1,7 +1,7 @@
 package com.gs.weather.di
 
-import com.gs.weather.data.network.LocationApi
-import com.gs.weather.data.network.WeatherApi
+import com.gs.weather.api.LocationApi
+import com.gs.weather.api.WeatherApi
 import com.gs.weather.utils.OPEN_CAGE_URL
 import com.gs.weather.utils.OPEN_WEATHER_MAP_URL
 import org.koin.dsl.module

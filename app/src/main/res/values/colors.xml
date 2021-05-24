@@ -25,11 +25,11 @@
     <color name="settingsHeaderColorNight">#8899AA</color>
 
     <!-- Forecast Tile Colors -->
-    <color name="humidityTileColor">#4D29B6F6</color>
+    <color name="humidityTileColor">#4D7E57C2</color>
     <color name="windTileColor">#4D66BB6A</color>
     <color name="pressureTileColor">#4DFFA726</color>
-    <color name="nextHoursTileColor">#4D7E57C2</color>
-
+    <color name="nextHoursTileColor">#4D29B6F6</color>
+    4D29B6F6
     <!-- Light Forecast Text Colors -->
     <color name="windTextColor">#47824A</color>
     <color name="humidityTextColor">#1C7FAC</color>

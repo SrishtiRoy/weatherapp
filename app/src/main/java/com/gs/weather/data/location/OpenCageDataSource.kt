@@ -1,7 +1,7 @@
 package com.gs.weather.data.location
 
 import com.gs.weather.data.entity.Location
-import com.gs.weather.data.network.LocationApi
+import com.gs.weather.api.LocationApi
 import com.gs.weather.data.network.json.opencage.LocationResponse
 import com.gs.weather.utils.Result
 

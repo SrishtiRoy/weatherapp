@@ -26,13 +26,10 @@ class OpenWeatherMapRepository(
 
     override suspend fun getForecastById(id: Int): Result<Forecast> =
         withContext(Dispatchers.Default) {
-            // Since id is a parameter, forecast must be in database
             val forecast: Forecast = database.getForecastDao().getForecasts().find { it.id == id }!!
 
-            // Changing displayed (current) forecast on the main screen
             database.getForecastDao().updateCurrentForecast(forecast.locationName)
 
-            // If data is outdated, then requesting new forecast
             if (forecast.isOutdated) {
                 return@withContext weatherDataSource
                     .request(forecast.toLocation(), settings.locale)
@@ -80,11 +77,7 @@ class OpenWeatherMapRepository(
             }
     }
 
-    /**
-     * Observable result of getting current forecast
-     *
-     * At first sends cached forecast, and then if it is outdated sends updated one
-     */
+
     override suspend fun getObservableCurrentForecast(): Flow<Result<Forecast>> = flow {
         val currentForecast = database.getForecastDao().getCurrentForecast()
         if (currentForecast != null) {
@@ -97,14 +90,9 @@ class OpenWeatherMapRepository(
         }
     }
 
-    /**
-     * Checks if database contains any data
-     */
+
     override suspend fun isEmpty(): Boolean = database.getForecastDao().getForecasts().isEmpty()
 
-    /**
-     *  Returns result of getting favourite locations from database
-     */
     override suspend fun getFavouriteForecasts(): Result<List<FavouriteForecast>> =
         withContext(Dispatchers.Default) {
             val favouriteForecasts = database.getForecastDao().getFavouriteForecasts()

@@ -1,9 +1,9 @@
 package com.gs.weather.data.weather
 
 import com.gs.weather.data.entity.*
-import com.gs.weather.data.network.WeatherApi
-import com.gs.weather.data.network.getIconDarkSurface
-import com.gs.weather.data.network.getIconLightSurface
+import com.gs.weather.api.WeatherApi
+import com.gs.weather.utils.getIconDarkSurface
+import com.gs.weather.utils.getIconLightSurface
 import com.gs.weather.data.network.json.openweathermap.Current
 import com.gs.weather.data.network.json.openweathermap.Daily
 import com.gs.weather.data.network.json.openweathermap.Hourly
@@ -61,14 +61,20 @@ class OpenWeatherMapDataSource(private val weatherApi: WeatherApi) : WeatherData
             wind = Wind(windSpeed.roundToInt()),
             humidity = humidity,
             pressure = Pressure(pressure),
-            imageId = getIconLightSurface(weather[0].id, weather[0].icon.last())
+            imageId = getIconLightSurface(
+                weather[0].id,
+                weather[0].icon.last()
+            )
         )
 
     private fun List<Hourly>.toHourList(locale: Locale) = take(HOURLY_COUNT).map {
         HourForecast(
             temperature = Temperature(it.temperature.roundToInt()),
             time = it.timestamp.toHourMinutes(locale),
-            imageId = getIconDarkSurface(it.weather[0].id, it.weather[0].icon.last())
+            imageId = getIconDarkSurface(
+                it.weather[0].id,
+                it.weather[0].icon.last()
+            )
         )
     }
 
@@ -81,7 +87,10 @@ class OpenWeatherMapDataSource(private val weatherApi: WeatherApi) : WeatherData
             wind = Wind(it.windSpeed.roundToInt()),
             pressure = Pressure(it.pressure),
             humidity = it.humidity,
-            imageId = getIconLightSurface(it.weather[0].id, it.weather[0].icon.last())
+            imageId = getIconLightSurface(
+                it.weather[0].id,
+                it.weather[0].icon.last()
+            )
         )
     }
 }
